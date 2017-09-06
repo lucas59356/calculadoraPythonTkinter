@@ -1,46 +1,7 @@
-from tkinter import *
+from tkinter import Entry, Label, Tk, Button
+from utils import somar, subtrair, multiplicar, dividir, potenciar
 
 janela = Tk()
-
-def somar () :
-    val1 = int(ed1.get())
-    val2 = int(ed2.get())
-    soma = val1 + val2
-    print("Soma: ", soma)
-    somastr = str(soma)
-    lb["text"] = "O Resultado é: " + somastr
-
-def subtrair () :
-    val1 = int(ed1.get())
-    val2 = int(ed2.get())
-    soma = val1 - val2
-    print("Resultado: ", soma)
-    somastr = str(soma)
-    lb["text"] = "O Resultado é: " + somastr
-
-def multiplicar () :
-    val1 = int(ed1.get())
-    val2 = int(ed2.get())
-    soma = val1 * val2
-    print("Produto: ", soma)
-    somastr = str(soma)
-    lb["text"] = "O Resultado é: " + somastr
-
-def dividir () :
-    val1 = int(ed1.get())
-    val2 = int(ed2.get())
-    soma = val1 / val2
-    print("Quociente: ", soma)
-    somastr = str(soma)
-    lb["text"] = "O Resultado é: " + somastr
-
-def potenciar () :
-    val1 = int(ed1.get())
-    val2 = int(ed2.get())
-    soma = val1 ** val2
-    print("Resultado: ", soma)
-    somastr = str(soma)
-    lb["text"] = "O Resultado é: " + somastr
 
 lb_main = Label(janela, text="Calculadora Tkinter", font="arial -22 bold")
 lb_main.pack()
@@ -56,19 +17,19 @@ ed2.pack()
 lb_ed2.pack()
 
 #Botões de operação   <<<<<<<<<<<<<<<<<<<<<<<<
-bt = Button(janela, text="Somar", width=20, command=somar)
+bt = Button(janela, text="Somar", width=20, command=lambda: somar(ed1, ed2, lb))
 bt.pack()
 
-bt = Button(janela, text="Subtrair", width=20, command=subtrair)
+bt = Button(janela, text="Subtrair", width=20, command=lambda: subtrair(ed1, ed2, lb))
 bt.pack()
 
-bt = Button(janela, text="Multiplicar", width=20, command=multiplicar)
+bt = Button(janela, text="Multiplicar", width=20, command=lambda: multiplicar(ed1, ed2, lb))
 bt.pack()
 
-bt = Button(janela, text="Dividir", width=20, command=dividir)
+bt = Button(janela, text="Dividir", width=20, command=lambda: dividir(ed1, ed2, lb))
 bt.pack()
 
-bt = Button(janela, text="Potenciar", width=20, command=potenciar)
+bt = Button(janela, text="Potenciar", width=20, command=lambda: potenciar(ed1, ed2, lb))
 bt.pack()
 
 lb = Label(janela, text="Resultado vem aqui")
